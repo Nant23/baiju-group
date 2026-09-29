@@ -1,0 +1,144 @@
+.testimonials-section {
+  padding: var(--section-padding) 0;
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, transparent 0%, rgba(22, 33, 105, 0.06) 50%, transparent 100%);
+}
+
+.testimonials-header {
+  text-align: center; margin-bottom: 56px;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.testimonials-header .section-subtitle { text-align: center; }
+
+.testimonials-carousel {
+  max-width: 760px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 36px;
+}
+
+.testimonials-track {
+  position: relative; width: 100%; min-height: 320px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Cards */
+.testimonial-card {
+  position: absolute; width: 100%;
+  background: var(--grad-card);
+  border: 1px solid rgba(61, 90, 212, 0.2);
+  border-radius: 24px; padding: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.testimonial-card.active {
+  opacity: 1; transform: translateX(0) scale(1);
+  pointer-events: all; z-index: 3;
+  box-shadow: 0 16px 48px rgba(6, 9, 26, 0.5);
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.testimonial-card.next  { opacity: 0.25; transform: translateX(60px)  scale(0.93); z-index: 2; }
+.testimonial-card.prev  { opacity: 0.25; transform: translateX(-60px) scale(0.93); z-index: 2; }
+.testimonial-card.hidden{ opacity: 0;    transform: scale(0.85);                   z-index: 1; pointer-events: none; }
+
+.quote-icon { color: var(--accent); opacity: 0.6; }
+
+.t-stars { display: flex; gap: 4px; }
+
+.t-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+.t-author {
+  display: flex; align-items: center; gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(61, 90, 212, 0.15);
+}
+
+.t-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; font-weight: 700; color: white;
+  flex-shrink: 0; letter-spacing: 0.5px;
+}
+
+.t-name  { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+.t-role  { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Controls */
+.carousel-controls { display: flex; align-items: center; gap: 20px; }
+
+.carousel-btn {
+  width: 44px; height: 44px;
+  background: rgba(13, 18, 48, 0.9);
+  border: 1px solid rgba(61, 90, 212, 0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition-bounce);
+}
+
+.carousel-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  background: rgba(201, 168, 76, 0.1);
+  transform: scale(1.08);
+}
+
+.carousel-dots { display: flex; gap: 8px; }
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 100px;
+  background: rgba(61, 90, 212, 0.25);
+  border: none;
+  transition: var(--transition);
+}
+
+.dot.active {
+  width: 28px;
+  background: var(--accent);
+}
+
+.dot:hover:not(.active) { background: var(--text-muted); }
+
+/* Trust row */
+.trust-row {
+  display: flex; align-items: center;
+  justify-content: center; gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 64px; padding-top: 48px;
+  border-top: 1px solid rgba(61, 90, 212, 0.15);
+}
+
+.trust-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(13, 18, 48, 0.6);
+  border: 1px solid rgba(61, 90, 212, 0.2);
+  border-radius: 100px; padding: 10px 20px;
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.trust-badge:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  color: var(--accent-light);
+}
+
+.trust-icon { font-size: 1rem; }
+
+@media (max-width: 600px) {
+  .testimonial-card { padding: 28px 24px; }
+  .testimonial-card.next,
+  .testimonial-card.prev { opacity: 0; pointer-events: none; }
+  .t-text { font-size: 0.95rem; }
+  .trust-row { gap: 6px; }
+  .trust-badge { padding: 8px 14px; font-size: 0.78rem; }
+}

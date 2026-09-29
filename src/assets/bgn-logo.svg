@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+  <!-- Outer oval background -->
+  <ellipse cx="110" cy="70" rx="108" ry="68" fill="#162169"/>
+  <!-- Inner oval ring -->
+  <ellipse cx="110" cy="70" rx="96" ry="57" fill="none" stroke="white" stroke-width="3.5"/>
+  <!-- BGN text -->
+  <text x="110" y="78" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="44" fill="white" text-anchor="middle" letter-spacing="-1">BGN</text>
+  <!-- Arrow/flag on N -->
+  <polygon points="172,22 182,14 182,30" fill="white"/>
+  <!-- Baiju Group text -->
+  <text x="110" y="115" font-family="Arial, sans-serif" font-weight="700" font-style="italic" font-size="16" fill="white" text-anchor="middle" letter-spacing="0.5">Baiju Group</text>
+</svg>

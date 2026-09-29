@@ -1,0 +1,294 @@
+/* =============================================
+   BAIJU GROUP — Global Design System
+   Navy Blue Brand Identity (#162169)
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ── Brand Colors (from BGN logo) ── */
+  --primary:       #162169;   /* Deep navy — logo bg */
+  --primary-light: #1e2d8f;   /* Slightly lighter navy */
+  --primary-mid:   #2a3fad;   /* Mid royal blue */
+  --primary-bright:#3d5ad4;   /* Bright royal blue — CTAs */
+  --primary-dark:  #0d1544;   /* Very dark navy */
+  --primary-pale:  #dde3f8;   /* Light lavender-blue tint */
+
+  /* ── Accent ── */
+  --accent:        #c9a84c;   /* Rich gold — premium contrast */
+  --accent-light:  #e8c96a;   /* Light gold */
+  --accent-dark:   #9e7a2a;   /* Deep gold */
+  --accent-blue:   #4a7fc1;   /* Secondary sky blue */
+
+  /* ── Neutrals / Backgrounds ── */
+  --bg:            #06091a;   /* Near-black navy bg */
+  --bg-card:       #0d1230;   /* Dark card bg */
+  --bg-elevated:   #121a40;   /* Slightly raised surface */
+  --border:        rgba(22, 33, 105, 0.5);
+  --border-light:  rgba(61, 90, 212, 0.2);
+  --border-hover:  rgba(61, 90, 212, 0.5);
+
+  /* ── Text ── */
+  --text-primary:  #eef1ff;
+  --text-secondary:#a8b8e8;
+  --text-muted:    #5d6fa8;
+
+  /* ── Gold accent ── */
+  --gold:          #c9a84c;
+  --gold-light:    #e8c96a;
+
+  /* ── Gradients ── */
+  --grad-primary:  linear-gradient(135deg, #162169 0%, #2a3fad 55%, #4a7fc1 100%);
+  --grad-brand:    linear-gradient(135deg, #0d1544 0%, #162169 50%, #1e2d8f 100%);
+  --grad-gold:     linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #c9a84c 100%);
+  --grad-card:     linear-gradient(145deg, rgba(18, 26, 64, 0.95) 0%, rgba(13, 18, 48, 0.98) 100%);
+  --grad-hero:     linear-gradient(160deg, rgba(6, 9, 26, 0.92) 0%, rgba(22, 33, 105, 0.35) 60%, rgba(74, 127, 193, 0.15) 100%);
+  --grad-shimmer:  linear-gradient(90deg, transparent 0%, rgba(22, 33, 105, 0.08) 50%, transparent 100%);
+
+  /* ── Shadows ── */
+  --shadow-sm:     0 2px 8px rgba(22, 33, 105, 0.25);
+  --shadow-md:     0 8px 32px rgba(22, 33, 105, 0.35);
+  --shadow-lg:     0 20px 60px rgba(22, 33, 105, 0.45);
+  --shadow-glow:   0 0 40px rgba(42, 63, 173, 0.5);
+  --shadow-gold:   0 4px 20px rgba(201, 168, 76, 0.3);
+
+  /* ── Spacing ── */
+  --nav-height:    80px;
+  --section-padding: 100px;
+
+  /* ── Transitions ── */
+  --transition:        all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* =============================================
+   Reset & Base
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; outline: none; font-family: 'Inter', sans-serif; }
+ul { list-style: none; }
+
+/* =============================================
+   Utilities
+   ============================================= */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22, 33, 105, 0.35);
+  border: 1px solid rgba(61, 90, 212, 0.35);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 20px;
+}
+
+.section-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.7); }
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.section-title span {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+/* Primary button — navy + gold shimmer */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--grad-primary);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(74, 127, 193, 0.4);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--grad-gold);
+  color: var(--primary-dark);
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 13px 32px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1.5px solid rgba(61, 90, 212, 0.4);
+  transition: var(--transition-bounce);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  background: rgba(201, 168, 76, 0.08);
+  transform: translateY(-2px);
+}
+
+/* =============================================
+   Scrollbar
+   ============================================= */
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary-mid); border-radius: 3px; }
+
+/* =============================================
+   Keyframe Animations
+   ============================================= */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+
+@media (max-width: 768px) {
+  :root { --section-padding: 60px; }
+}
